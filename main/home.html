@@ -1,0 +1,39 @@
+<div class="scrollable">
+  <div class="scrollable-content">
+
+    <div class="list-group text-left">
+      <!--照片和姓名-->
+      <div class="list-group-item list-group-item-home user-style">
+        <div>
+          <i class="fa fa-user feature-icon text-primary left-show-style"></i>
+          <h1 class="inline-style">joshinrai</h1>
+        </div>
+      </div>
+
+      <!--登陆时间和天气-->
+      <div class="list-group-item list-group-item-home userInfo-style">
+
+        <div class="clear-show-style">
+          <div class="loginInfo-style first-div-color">
+            68 天 28 小时
+          </div>
+          <div class="loginInfo-style last-div-color" ng-click="weatherDetail()">
+            杭州
+          </div>
+        </div>
+
+      </div>
+
+      <!--行为列表-->
+      <div class="list-group-item list-group-item-home userInfo-style optionList-style">
+        <div class="list-group">
+          <a ng-repeat="item in homePageItems" href="{{item.href}}" class="list-group-item" ng-click="testaaa(item.message , item.nodeid)">
+            <i class="fa fa-{{item.icon}}"></i> {{ item.message }}
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
