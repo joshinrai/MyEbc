@@ -6,4 +6,4 @@
 
 mobile angular UI 框架地址：http://mobileangularui.com.
 
-主要目的：使用angular框架
+项目UI设计：http://crowdsourcing.topcoder.com/project/bmc/
