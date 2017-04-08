@@ -2,7 +2,7 @@
 
 使用 Angular Js 和 Bootstrap 3 实现的mobile app项目
 
-访问我的游记项目主页： http://120.27.10.62:8080/myEbc/main/#
+访问我的游记项目主页： http://www.joshinrai.com:8080/myEbc/main/index.html#/
 
 mobile angular UI 框架地址：http://mobileangularui.com.
 
