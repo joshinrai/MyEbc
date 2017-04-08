@@ -290,3 +290,11 @@ input.scrollable-header {
   width:72px;
   border-radius : 200px;
 }
+
+/***
+ *设置行程中详情标题样式
+ */
+.travel-title-style{
+    color:rgba(250,128,10,.8);
+    font-size:1.3em;
+}

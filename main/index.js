@@ -295,7 +295,7 @@ app.controller('MainController', function($rootScope, $scope , $http) {
   $scope.scrollItems = scrollItems;
 
   var homePageItems = [
-            {icon : 'briefcase', message : '我的行程记录', nodeid : '0' , href : '#/travelrecord'},
+            {icon : 'briefcase', message : '我的行程', nodeid : '0' , href : '#/travelrecord'},
             {icon : 'location', message :'目的地信息' , nodeid : '1', href : '#/destinationinfo'},
             //{icon : 'information' , message : '关于杭州' , nodeid : '2', href : '#/tabs'},
             {icon : 'pricetags' ,message : '我的访客', nodeid : '3', href : '#/visitorlist'} ,
@@ -382,6 +382,18 @@ app.controller('MainController', function($rootScope, $scope , $http) {
         //请求失败时的执行代码块
         $scope.weatherData = __weather_city ;
     });
+  })() ;
+
+  //中文乱码测试
+  !(function(){
+    $http({
+      method:'post',
+      url:'data/test.json'
+    }).then(function successCallback(response){
+        console.log("sucess") ;
+    },function errorCallback(response){
+        console.log("error") ;
+    }) ;
   })() ;
 
  /***
