@@ -46,6 +46,7 @@ app.config(function($routeProvider) {
   $routeProvider.when('/destinationinfo', {templateUrl: 'mainpage/destinationinfo.html', reloadOnSearch: false});
   $routeProvider.when('/missionlist', {templateUrl: 'mainpage/missionlist.html', reloadOnSearch: false});
   $routeProvider.when('/visitorlist', {templateUrl: 'mainpage/visitorlist.html', reloadOnSearch: false});
+  $routeProvider.when('/weatherdetail', {templateUrl: 'mainpage/weatherdetail.html', reloadOnSearch: false});
 });
 
 //
@@ -366,26 +367,28 @@ app.controller('MainController', function($rootScope, $scope , $http) {
    }
 
  /***
-  *获取天气细节信息,只需要执行js脚本获取__weather_city对象信息，没有具体的json数据返回，所以响应数据一直是error
-  *具体业务环境需要修改url中具体的js文本,现在拿杭州做测试
+  *获取当前地区天气数据
   */
-  $scope.weatherDetail = function(){
-    location = "#/weatherdetail" ;
+  !(function(){
     $http({
       method: 'JSONP',
       url: 'http://weather.gtimg.cn/city/01013401.js?ref=qqnews',
-      //scriptCharset:'utf-8',
-      //contentType: "application/x-www-form-urlencoded; charset=utf-8", 
       headers:{
           'Content-Type' : 'application/json;charset=UTF-8'
       }
     }).then(function successCallback(response) {
         // 请求成功执行代码
-        console.log("this is success ..." , __weather_city) ;
       }, function errorCallback(response) {
-        // 请求失败执行代码,并向weatherdetail页面灌入数据
-        console.log("the response is :" , JSON.stringify(__weather_city)) ;
-        alert(__weather_city) ;
+        //请求失败时的执行代码块
+        console.log("this is weatherDetail ...") ;
     });
+  })() ;
+
+ /***
+  *具体业务环境需要修改url中具体的js文本,现在拿杭州做测试
+  */
+  $scope.weatherDetail = function(){
+    location = "#/weatherdetail" ;
+    console.log("this is location test ...") ;
   }
 });

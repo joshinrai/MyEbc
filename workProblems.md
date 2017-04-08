@@ -1,0 +1,2 @@
+1、获取日期对象__weather_city中的中文总是乱码
+2、如何将异步获取得到的__weather_city对象设置为$scope的全局对象
