@@ -380,7 +380,7 @@ app.controller('MainController', function($rootScope, $scope , $http) {
         // 请求成功执行代码
       }, function errorCallback(response) {
         //请求失败时的执行代码块
-        console.log("this is weatherDetail ...") ;
+        $scope.weatherData = __weather_city ;
     });
   })() ;
 
