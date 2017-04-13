@@ -2,10 +2,9 @@
 
 'use strict';
 
-//
-// Here is how to define your module
-// has dependent on mobile-angular-ui
-//
+/***
+ * 依赖mobile-angular-ui定义module
+ */
 var app = angular.module('MobileAngularUiExamples', [
   'ngRoute',
   'mobile-angular-ui',
@@ -22,11 +21,9 @@ app.run(function($transform) {
   window.$transform = $transform;
 });
 
-//
-// You can configure ngRoute as always, but to take advantage of SharedState location
-// feature (i.e. close sidebar on backbutton) you should setup 'reloadOnSearch: false'
-// in order to avoid unwanted routing.
-//
+/***
+ * 配置路由，使用共享路径的优势，可以设置reloadOnSearch为false去避免不想要的路由
+ */
 app.config(function($routeProvider) {
   $routeProvider.when('/', {templateUrl: 'home.html', reloadOnSearch: false});
   $routeProvider.when('/scroll', {templateUrl: 'scroll.html', reloadOnSearch: false});
@@ -49,10 +46,9 @@ app.config(function($routeProvider) {
   $routeProvider.when('/weatherdetail', {templateUrl: 'mainpage/weatherdetail.html', reloadOnSearch: false});
 });
 
-//
-// `$touch example`
-//
-
+/***
+ *touch方法式例
+ */
 app.directive('toucharea', ['$touch', function($touch) {
   // Runs during compile
   return {
@@ -85,9 +81,9 @@ app.directive('toucharea', ['$touch', function($touch) {
   };
 }]);
 
-//
-// `$drag` example: drag to dismiss
-//
+/***
+ * 拖拽方法
+ */
 app.directive('dragToDismiss', function($drag, $parse, $timeout) {
   return {
     restrict: 'A',
@@ -128,10 +124,9 @@ app.directive('dragToDismiss', function($drag, $parse, $timeout) {
   };
 });
 
-//
-// Another `$drag` usage example: this is how you could create
-// a touch enabled "deck of cards" carousel. See `carousel.html` for markup.
-//
+/***
+ * 另一个拖拽的方法使用式例
+ */
 app.directive('carousel', function() {
   return {
     restrict: 'C',
@@ -189,18 +184,9 @@ app.directive('carouselItem', function($drag) {
       });
 
       $drag.bind(elem, {
-        //
-        // This is an example of custom transform function
-        //
         transform: function(element, transform, touch) {
-          //
-          // use translate both as basis for the new transform:
-          //
           var t = $drag.TRANSLATE_BOTH(element, transform, touch);
 
-          //
-          // Add rotation:
-          //
           var Dx = touch.distanceX;
           var t0 = touch.startTransform;
           var sign = Dx < 0 ? -1 : 1;
@@ -239,17 +225,16 @@ app.directive('dragMe', ['$drag', function($drag) {
     controller: function($scope, $element) {
       $drag.bind($element,
         {
-          //
-          // Here you can see how to limit movement
-          // to an element
-          //
+          /***
+           * 限制一个元素的移动
+           */
           transform: $drag.TRANSLATE_INSIDE($element.parent()),
           end: function(drag) {
-            // go back to initial position
+            // 重制位置
             drag.reset();
           }
         },
-        { // release touch when movement is outside bounduaries
+        { //当移动到外部时释放touch事件
           sensitiveArea: $element.parent()
         }
       );
@@ -266,10 +251,10 @@ app.controller('MainController', function($rootScope, $scope , $http) {
     alert('Swiped ' + direction);
   };
 
-  // User agent displayed in home page
+  //使用客户端展示主页
   $scope.userAgent = navigator.userAgent;
 
-  // Needed for the loading screen
+  //加载页
   $rootScope.$on('$routeChangeStart', function() {
     $rootScope.loading = true;
   });
@@ -278,14 +263,14 @@ app.controller('MainController', function($rootScope, $scope , $http) {
     $rootScope.loading = false;
   });
 
-  // Fake text i used here and there.
+  // 伪造的文本
   $scope.lorem = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. ' +
     'Vel explicabo, aliquid eaque soluta nihil eligendi adipisci error, illum ' +
     'corrupti nam fuga omnis quod quaerat mollitia expedita impedit dolores ipsam. Obcaecati.';
 
-  //
-  // 'Scroll' screen
-  //
+  /***
+   * 卷轴效果
+   */
   var scrollItems = [];
 
   for (var i = 1; i <= 100; i++) {
@@ -321,9 +306,9 @@ app.controller('MainController', function($rootScope, $scope , $http) {
     {name: 'Bill  Chavez', online: true}
   ];
 
-  //
-  // 'Forms' screen
-  //
+  /***
+   * 表单效果
+   */
   $scope.rememberMe = true;
   $scope.email = 'me@example.com';
 
@@ -331,9 +316,9 @@ app.controller('MainController', function($rootScope, $scope , $http) {
     alert('You submitted the login form');
   };
 
-  //
-  // 'Drag' screen
-  //
+  /***
+   * 拖拽效果
+   */
   $scope.notices = [];
 
   for (var j = 0; j < 10; j++) {
@@ -348,7 +333,7 @@ app.controller('MainController', function($rootScope, $scope , $http) {
   };
 
   /***
-   * my function
+   * 我的测试方法
    */
    $scope.testaaa = function(msg , id){
     switch(parseInt(id)){
