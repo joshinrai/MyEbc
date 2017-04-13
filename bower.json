@@ -1,8 +1,8 @@
 {
-  "name": "mobile-angular-ui",
-  "homepage": "https://github.com/mcasimir/mobile-angular-ui",
+  "name": "MyEbc",
+  "homepage": "https://github.com/joshinrai/MyEbc",
   "authors": [
-    "mcasimir <maurizio.cas@gmail.com>"
+    "mcasimir <joshinrai@163.com>"
   ],
   "description": "Mobile UI for Bootstrap 3 and Angular JS",
   "main": [
