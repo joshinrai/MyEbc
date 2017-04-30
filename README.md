@@ -7,3 +7,6 @@
 mobile angular UI 框架地址：http://mobileangularui.com.
 
 项目UI设计：http://crowdsourcing.topcoder.com/project/bmc/
+
+运行项目：
+进入主文件夹，在终端运行:gulp(不要忘记安装npm依赖和配置node环境变量)
