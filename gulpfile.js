@@ -27,6 +27,13 @@ gulp.on('error', function(e) {
   throw (e);
 });
 
+/* ================================================
+=            The Default Task                    =
+================================================*/
+gulp.task('default' , function(){
+  console.log("this is joshinrai's gulp project ...") ;
+}) ;
+
 /* =========================================
 =            Clean dest folder            =
 =========================================*/
