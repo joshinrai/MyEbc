@@ -3,7 +3,7 @@ let gulp = require('gulp');
 let temp = require('temp');
 
 /* ========================================
-=            Requiring stuffs            =
+=            添加需要的模块                 =
 ========================================*/
 
 let concat = require('gulp-concat');
@@ -20,7 +20,7 @@ let connect = require('gulp-connect');
 let waitOn = require('wait-on');
 
 /* ================================================
-=            Report Errors to Console            =
+=            控制台报错                            =
 ================================================*/
 
 gulp.on('error', function(e) {
@@ -28,14 +28,14 @@ gulp.on('error', function(e) {
 });
 
 /* ================================================
-=            The Default Task                    =
+=            添加默认任务                           =
 ================================================*/
 gulp.task('default' , function(){
   console.log("this is joshinrai's gulp project ...") ;
 }) ;
 
 /* =========================================
-=            Clean dest folder            =
+=            清空编译文件                    =
 =========================================*/
 
 gulp.task('clean', function() {
@@ -43,7 +43,7 @@ gulp.task('clean', function() {
 });
 
 /* ==================================
-=            Copy fonts            =
+=            拷贝样式                =
 ==================================*/
 
 gulp.task('fonts', function() {
@@ -52,7 +52,7 @@ gulp.task('fonts', function() {
 });
 
 /* ======================================================================
-=            Compile, minify, mobilize less                            =
+=            编译、组织、最小化less                                        =
 ======================================================================*/
 
 let CSS_TEMP_DIR = temp.path({prefix: 'maui-css'});
@@ -120,7 +120,7 @@ gulp.task('css', function(done) {
 });
 
 /* ====================================================================
-=            Compile and minify js generating source maps            =
+=            编译、最小化资源模块                                        =
 ====================================================================*/
 
 let compileJs = function(dest, src) {
@@ -149,7 +149,7 @@ gulp.task('js:main', function() {
 gulp.task('js', ['js:main', 'js:gestures', 'js:core']);
 
 /* ======================================
-=            Build Sequence            =
+=            构建计数                    =
 ======================================*/
 
 gulp.task('build:wait', waitFor([
@@ -180,7 +180,7 @@ gulp.task('build', function(done) {
 });
 
 /* ==========================================
-=            Dev watch and connect          =
+=            监控和连接开发模块                =
 ==========================================*/
 
 gulp.task('dev', function(done) {
@@ -193,7 +193,7 @@ gulp.task('dev', function(done) {
 });
 
 /* ==========================================
-=            Web servers                   =
+=            缇娜家web服务                    =
 ==========================================*/
 
 gulp.task('connect', function() {
@@ -206,7 +206,7 @@ gulp.task('connect', function() {
 });
 
 /* ==============================================================
-=            Setup live reloading on source changes            =
+=            添加实时监控文件变化任务                               =
 ==============================================================*/
 
 gulp.task('livereload:demo', function() {
@@ -215,7 +215,7 @@ gulp.task('livereload:demo', function() {
 });
 
 /* ===================================================================
-=            Watch for source changes and rebuild/reload            =
+=            添加资源变化时的重编译和重新加载                             =
 ===================================================================*/
 
 gulp.task('watch', function() {
