@@ -1,0 +1,3 @@
+*.js linguist-language=mobile-angular
+*.css linguist-language=mobile-angular
+*.html linguist-language=mobile-angular
